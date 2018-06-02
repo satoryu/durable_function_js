@@ -1,4 +1,4 @@
 module.exports = function(context, name) {
-    context.log(`${name} DEATH!`);
-    context.done();
+    var message = `${name} DEATH!`;
+    context.done(null, message);
 };
