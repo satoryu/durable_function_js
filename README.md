@@ -17,7 +17,7 @@ Use the terraform files under `terraform` directory in this repository to provis
 ```sh
 cd ./terraform
 terraform apply -var 'name=durablejssample'
-export FUNCTION_NAME=durable # change the name of function name
+export FUNCTION_NAME=$(terraform output function_name)
 ```
 
 This provisioning gives you
