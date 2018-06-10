@@ -5,7 +5,9 @@
       "authLevel": "anonymous",
       "type": "httpTrigger",
       "direction": "in",
-      "methods": [ "post" ],
+      "methods": [
+        "post"
+      ],
       "name": "req"
     },
     {
@@ -14,8 +16,14 @@
       "name": "res"
     },
     {
-      "name": "starter",
+      "type": "blob",
+      "name": "parameters",
+      "path": "parameters/{filename}",
+      "connection": "STORAGE_CONNECTION_STRING"
+    },
+    {
       "type": "orchestrationClient",
+      "name": "starter",
       "direction": "out"
     }
   ]

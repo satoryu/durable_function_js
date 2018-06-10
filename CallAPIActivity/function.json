@@ -2,8 +2,8 @@
   "disabled": false,
   "bindings": [
     {
-      "name": "name",
       "type": "activityTrigger",
+      "name": "parameter",
       "direction": "in"
     }
   ]

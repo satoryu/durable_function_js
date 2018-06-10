@@ -14,6 +14,12 @@ resource "azurerm_storage_account" "function" {
   account_replication_type = "LRS"
 }
 
+resource "azurerm_storage_container" "parameters" {
+  name                 = "parameters"
+  resource_group_name  = "${azurerm_resource_group.function.name}"
+  storage_account_name = "${azurerm_storage_account.function.name}"
+}
+
 resource "azurerm_app_service_plan" "function" {
   name                = "${var.name}-function-plan"
   resource_group_name = "${azurerm_resource_group.function.name}"
@@ -43,5 +49,6 @@ resource "azurerm_function_app" "function" {
   app_settings = {
     "WEBSITE_NODE_DEFAULT_VERSION"   = "8.9.4"
     "APPINSIGHTS_INSTRUMENTATIONKEY" = "${azurerm_application_insights.function.instrumentation_key}"
+    "STORAGE_CONNECTION_STRING"      = "${azurerm_storage_account.function.primary_connection_string}"
   }
 }

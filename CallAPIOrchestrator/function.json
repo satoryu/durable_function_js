@@ -2,9 +2,9 @@
   "disabled": false,
   "bindings": [
     {
+      "name": "context",
       "type": "orchestrationTrigger",
-      "direction": "in",
-      "name": "context"
+      "direction": "in"
     }
   ]
 }
